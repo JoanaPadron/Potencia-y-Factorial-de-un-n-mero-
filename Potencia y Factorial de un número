@@ -1,0 +1,128 @@
+/*
+CASTILLO PADRÓN STEFANY JOANA
+CICLOS DE CONTROL: FOR, WHILE, DO-WHILE
+12/03/2021
+*/
+
+#include<iostream> //libreria de objetos de entrada y salida de datos
+using namespace std; //uso de funciones estándar 
+int for_factorial(int n,int numero,int factorial);
+int for_potencia(int i,int exponente,int multiplicacion,int base);
+int while_factorial(int n,int numero,int factorial);
+int while_potencia(int i,int exponente,int multiplicacion,int base);
+int doWhile_factorial(int n,int numero,int factorial);
+int doWhile_potencia(int i,int exponente,int multiplicacion,int base);
+
+int main()//funcion principal
+{
+	char opc;
+	int numero=0; //variable de numero digitado tipo entero
+	int factorial=1; //arrojar el factorial tipo entero igual a 1 ya que sino dara cero de resultado
+	int n=1;
+	int base=0;
+	int exponente=0;
+	int i=1;
+	int multiplicacion=1;
+	cout<<"Bienvenido(a), en este programa tenemos la opcion de calcular:"<<endl<<endl;
+	cout<<"A) Factorial de un numero"<<"	B)Numeros elevados a una potencia"<<endl<<endl;
+	cout<<"Favor de teclear la letra de la opción elegida: ";
+	cin>>opc;
+	system("cls");//borrar pantalla
+	if(opc=='A'|opc=='a'|opc=='B'|opc=='b')
+	{
+		if(opc=='A'|opc=='a')
+		{
+			cout<<endl<<"++ Usted ha elegido EL FACTORIAL DE UN NUMERO ++"<<endl;
+			cout<<endl<<"Favor de teclear el numero elegido: ";
+			cin>>numero;//guardar numero en la variable
+			for_factorial(n,numero,factorial);
+			while_factorial(n,numero,factorial);
+			doWhile_factorial(n,numero,factorial);
+		}
+		else if(opc=='B'|opc=='b')
+		{
+			cout<<endl<<"++ Usted ha elegido NUMEROS ELEVADOS A UNA POTENCIA ++"<<endl;
+			cout<<endl<<"Dame el valor de la base: ";
+			cin>>base;
+			cout<<endl<<"Dame el valor de su respectivo exponente: ";
+			cin>>exponente;
+			for_potencia(i,exponente,multiplicacion,base);
+			while_potencia(i,exponente,multiplicacion,base);
+			doWhile_potencia(i,exponente,multiplicacion,base);
+		}
+	}
+	else
+	{
+		cout<<endl<<"	Lo sentimos pero la opcion tecleada es incorrecta"<<endl;
+	}
+}
+
+int for_factorial(int n,int numero,int factorial)
+{
+	cout<<endl<<"CICLO FOR"<<endl;
+	for(n;n<=numero;n++)
+	{
+		cout<<n<<" * ";
+		factorial=factorial*n;//se multiplica el resultado del factorial por el numero que se va dando (ej.1*2=2,2*3=6,6*4=24)
+	}
+	cout<<" = "<<numero<<" ! = "<<factorial<<endl;
+	return 0;
+}
+
+int for_potencia(int i,int exponente,int multiplicacion,int base)
+{
+	cout<<endl<<"CICLO FOR"<<endl;
+	for(i;i<=exponente;i++)
+	{
+		cout<<base<<" * ";
+		multiplicacion=multiplicacion*base;    
+    }
+    cout<<" = "<<base<<" ^ "<<exponente<<" = "<<multiplicacion<<endl;
+    return 0;
+}
+
+int while_factorial(int n,int numero,int factorial)
+{
+	cout<<endl<<"CICLO WHILE"<<endl;
+	while(n<=numero)
+	{
+		cout<<n<<" * ";
+        factorial=factorial*n;
+        n++;
+    }cout<<" = "<<numero<<" ! = "<<factorial<<endl;
+    return 0;
+}
+
+int while_potencia(int i,int exponente,int multiplicacion,int base)
+{
+	cout<<endl<<"CICLO WHILE"<<endl;
+	while(i<=exponente)
+	{
+		cout<<base<<" * ";
+        multiplicacion=multiplicacion*base;
+        i++;
+    }cout<<" = "<<base<<" ^ "<<exponente<<" = "<<multiplicacion<<endl;
+}
+
+int doWhile_factorial(int n,int numero,int factorial)
+{
+	cout<<endl<<"CICLO DO-WHILE"<<endl;
+	do{
+		cout<<n<<" * ";
+		factorial=factorial*n;   	
+		n=n+1;
+    }while(n<=numero);
+    cout<<" = "<<numero<<" ! = "<<factorial<<endl;
+    return 0;
+}
+
+int doWhile_potencia(int i,int exponente,int multiplicacion,int base)
+{
+	cout<<endl<<"CICLO DO-WHILE"<<endl;
+	do{
+		cout<<base<<" * ";
+		multiplicacion=multiplicacion*base;   	
+		i=i+1;
+    }while(i<=exponente);
+    cout<<" = "<<base<<" ^ "<<exponente<<" = "<<multiplicacion<<endl;
+}
